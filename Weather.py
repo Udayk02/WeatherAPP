@@ -7,14 +7,14 @@ root = Tk()
 root.title('Weather')
 #root.iconbitmap('py/Weather.ico')
 
-# http://api.openweathermap.org/data/2.5/weather?q=Srikakulam,IN&APPID=5f7892104fafd54f6c63bbb77f4285d7
+# http://api.openweathermap.org/data/2.5/weather?q=Srikakulam,IN&APPID={API_KEY}
 
 
 def search():
     city_name = search_city.get()
 
     try:
-        api_request = requests.get("http://api.openweathermap.org/data/2.5/weather?q=" + city_name + ",IN&APPID=5f7892104fafd54f6c63bbb77f4285d7")
+        api_request = requests.get("http://api.openweathermap.org/data/2.5/weather?q=" + city_name + ",IN&APPID={YOUR API_KEY}")
         api = json.loads(api_request.content)
         city = api['name']
         temp = str(round(api['main']['temp']/10, 2))
